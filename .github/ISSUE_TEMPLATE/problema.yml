@@ -1,0 +1,35 @@
+name: Problema no site ou no conteúdo
+description: Relate um erro reproduzível, link quebrado ou inconsistência do cenário.
+title: "[Problema] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use somente exemplos sintéticos. Não inclua dados pessoais, credenciais ou
+        detalhes de vulnerabilidades. Para segurança, consulte SECURITY.md.
+  - type: input
+    id: local
+    attributes:
+      label: Página ou arquivo e versão
+      description: Informe o caminho, a URL pública ou a revisão afetada.
+    validations:
+      required: true
+  - type: textarea
+    id: reproducao
+    attributes:
+      label: Problema e reprodução
+      description: Descreva passos, resultado esperado e resultado observado.
+    validations:
+      required: true
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto adicional
+      description: Navegador, largura da tela, trechos em conflito ou referências.
+  - type: checkboxes
+    id: privacidade
+    attributes:
+      label: Dados compartilhados
+      options:
+        - label: Revisei o relato e removi dados pessoais e segredos.
+          required: true

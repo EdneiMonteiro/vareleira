@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Ao usar a Vareleira, cite a versão ou revisão utilizada."
+title: "Vareleira: contexto fictício para educação em inteligência artificial"
+abstract: >-
+  Site institucional de uma seguradora fictícia de Brasília, com história-base,
+  personagens e dados sintéticos para mentorias, manuais, cursos e laboratórios.
+  Inclui introduções à consulta de apólices e à criação de um Centro de
+  Excelência em IA. O cenário de referência corresponde a agosto de 2026.
+type: software
+authors:
+  - family-names: Monteiro
+    given-names: Ednei
+    orcid: "https://orcid.org/0009-0006-0765-4201"
+repository-code: "https://github.com/EdneiMonteiro/vareleira"
+url: "https://edneimonteiro.github.io/vareleira/"
+version: "0.1.0"
+# Licenças por componente, conforme LICENSE; não são opções para o mesmo material.
+license:
+  - MIT
+  - CC-BY-4.0
+keywords:
+  - artificial intelligence
+  - fictional company
+  - synthetic data
+  - insurance
+  - retrieval-augmented generation
+  - AI governance
+  - education

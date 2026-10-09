@@ -1,0 +1,26 @@
+# Licenças da Vareleira
+
+Copyright (c) 2026 Ednei Monteiro e contribuidores identificados.
+
+Este projeto aplica duas licenças a componentes distintos. Não se trata de uma
+opção entre licenças para o mesmo material.
+
+| Componente | Licença |
+| --- | --- |
+| Código: estrutura e marcação HTML, CSS, scripts Python e configurações de automação | MIT, conforme LICENSES/MIT.txt |
+| Conteúdo: redação das páginas, documentação, narrativa, personagens, ilustrações e dados sintéticos | Creative Commons Atribuição 4.0 Internacional, conforme LICENSES/CC-BY-4.0.txt |
+
+Em arquivos mistos, como HTML, a licença MIT cobre a implementação e a licença
+CC BY 4.0 cobre os textos e demais conteúdos incorporados. Ao redistribuir uma
+página completa, preserve os avisos e cumpra ambas as licenças em seus escopos.
+O CSS permanece sob MIT; eventuais textos autorais em `content:` seguem CC BY 4.0.
+Textos de modelos de contribuição e comentários documentais seguem CC BY 4.0.
+
+Os textos das licenças são reproduzidos integralmente nos arquivos indicados.
+Materiais de terceiros preservam suas próprias licenças e atribuições; consulte
+NOTICE.md. As licenças não concedem direitos sobre marcas de terceiros nem
+permitem sugerir endosso do autor ou das empresas mencionadas.
+
+Ao usar conteúdo da Vareleira, atribua a autoria, indique a versão, forneça um
+link para a licença e identifique adaptações, conforme os termos de CC BY 4.0.
+O uso comercial é permitido pelas licenças, observadas suas condições.

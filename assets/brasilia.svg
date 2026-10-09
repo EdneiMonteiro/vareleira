@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="570" viewBox="0 0 600 570" role="img" aria-labelledby="title desc">
+  <title id="title">Paisagem fictícia inspirada em Brasília</title>
+  <desc id="desc">Ilustração de colunas curvas, edifícios, sol terracota e vegetação do cerrado.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#849b8e" stroke-width=".6" opacity=".28"/></pattern>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#e2e9db"/><stop offset="1" stop-color="#d4dfcf"/></linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h600v570H0z"/>
+  <path fill="url(#grid)" d="M0 0h600v570H0z"/>
+  <circle cx="428" cy="136" r="65" fill="#c47451"/>
+  <circle cx="428" cy="136" r="92" fill="none" stroke="#a7b4a0" stroke-width="1"/>
+  <path d="M0 365 600 333v237H0" fill="#bccab7"/>
+  <path d="m0 469 600-49v150H0" fill="#829d8b"/>
+  <path d="m0 512 600-19v77H0" fill="#25484b"/>
+  <path d="m42 368 294-25 208 87-277 37z" fill="#47635a" opacity=".22"/>
+  <path d="m45 322 300-22 199 76-292 33z" fill="#f5f0df"/>
+  <path d="m45 322 207 72v15L45 338z" fill="#cccdbb"/>
+  <path d="m252 394 292-18v15l-292 33z" fill="#e3e3ce"/>
+  <path d="m80 275 220-17 177 62-225 20z" fill="#f9f6ea"/>
+  <path d="m80 275 172 65v9L80 287z" fill="#bfc8b9"/>
+  <path d="m252 340 225-20v10l-225 19z" fill="#d2d7c5"/>
+  <g fill="#fffaf0">
+    <path d="M102 286q11 46-9 59l35 12q-10-27-5-63z"/>
+    <path d="M153 305q11 44-7 58l35 12q-11-26-5-62z"/>
+    <path d="M205 324q11 44-7 58l35 12q-11-26-5-62z"/>
+    <path d="M279 344q8 30-11 48l29-2q-9-14-4-47z"/>
+    <path d="M347 338q8 30-11 48l29-2q-9-14-4-47z"/>
+    <path d="M415 332q8 30-11 48l29-2q-9-14-4-47z"/>
+  </g>
+  <g fill="#335751">
+    <path d="M167 167h29v109l-29-10z"/>
+    <path d="M206 160h28v124l-28-11z"/>
+  </g>
+  <g stroke="#cfdbca" stroke-width="1" opacity=".65"><path d="M173 178v80m8-80v83m8-83v85M213 171v95m8-95v97m7-97v100"/></g>
+  <g fill="#56745c">
+    <path d="M503 430h6v-74h-6z"/>
+    <ellipse cx="506" cy="344" rx="36" ry="43"/>
+    <path d="M50 419h5v-48h-5z"/>
+    <ellipse cx="52" cy="356" rx="24" ry="29"/>
+  </g>
+  <g fill="#839a71"><ellipse cx="513" cy="332" rx="24" ry="31"/><ellipse cx="58" cy="351" rx="16" ry="21"/></g>
+  <path d="m316 466 43-3m15-1 90-7" stroke="#e4e9d6" stroke-width="2"/>
+  <text x="34" y="537" fill="#e6eddd" font-family="Arial,sans-serif" font-size="10" letter-spacing="3">BRASÍLIA · DISTRITO FEDERAL</text>
+  <path d="M525 525h35m-17-17v35" stroke="#c1d4bc" stroke-width="1"/>
+</svg>

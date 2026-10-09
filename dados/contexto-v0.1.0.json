@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "versao": "0.1.0",
+  "idioma": "pt-BR",
+  "natureza": "Universo fictício para educação em inteligência artificial (IA).",
+  "autor_projeto": "Ednei Monteiro",
+  "data_referencia_cenario": "2026-08",
+  "status_editorial": "Primeira versão da história-base, com cenário de referência em agosto de 2026.",
+  "licenca_novos_conteudos": "Creative Commons Atribuição 4.0 Internacional (CC BY 4.0) para textos, ilustrações e dados sintéticos; MIT para código. Escopos e atribuições em LICENSE e NOTICE.md.",
+  "empresa": {
+    "razao_social_ficticia": "Vareleira Seguros S.A.",
+    "marca": "Vareleira",
+    "ano_fundacao": 1994,
+    "origem": "Familiar, ligada à experiência dos fundadores com corretores.",
+    "fundadores": ["Lúcia Vareleira", "Augusto Vareleira"],
+    "sede": {"cidade": "Brasília", "uf": "DF", "pais": "Brasil"},
+    "atuacao": "Nacional",
+    "colaboradores_aproximados": 4000,
+    "personalidade": "Tradicional em modernização; confiável, humana, com legado e conflitos.",
+    "canais_narrativos": ["Corretores", "Portal digital", "Atendimento"],
+    "diferencas_regionais": ["Canais utilizados", "Rede de prestadores", "Práticas de atendimento"],
+    "ressalva": "Empresa fictícia, sem oferta de seguros ou autorização regulatória."
+  },
+  "produtos": [
+    {"id": "vareleira-lar", "nome": "Vareleira Lar", "ramo": "Residencial", "papel_didatico": "Primeiro laboratório de geração aumentada por recuperação (RAG, do inglês Retrieval-Augmented Generation)", "condicoes_sinteticas": "Planejadas"},
+    {"id": "vareleira-auto", "nome": "Vareleira Auto", "ramo": "Automóvel", "papel_didatico": "Exercícios futuros", "condicoes_sinteticas": "Planejadas"},
+    {"id": "vareleira-negocios", "nome": "Vareleira Negócios", "ramo": "Pequenas e médias empresas", "papel_didatico": "Exercícios futuros", "condicoes_sinteticas": "Planejadas"}
+  ],
+  "personagens": [
+    {"nome": "Lúcia Vareleira", "papel": "Cofundadora", "contexto": "Experiência com corretores e dúvidas dos clientes."},
+    {"nome": "Augusto Vareleira", "papel": "Cofundador", "contexto": "Operação e relacionamento com a rede de corretores."},
+    {"nome": "Helena Vareleira", "papel": "Presidente, segunda geração", "contexto": "Modernização e continuidade das relações com corretores."},
+    {"nome": "André Nascimento", "papel": "Diretor de tecnologia, patrocinador executivo do Centro de Excelência em IA (CoE de IA)", "contexto": "Patrocínio desde março de 2025 e decisões executivas de remediação."},
+    {"nome": "Camila Duarte", "papel": "Líder do CoE de IA", "contexto": "Coordenação de portfólio e práticas compartilhadas."},
+    {"nome": "Beatriz Torres", "papel": "Responsável pelo Atendimento", "contexto": "Representante de negócio do Assistente de Apólices."},
+    {"nome": "Rafael Paiva", "papel": "Responsável por Sinistros", "contexto": "Apoio à análise com decisão humana."},
+    {"nome": "Mariana Azevedo", "papel": "Articulação de risco e privacidade", "contexto": "Coordena a participação das funções de controle, que mantêm suas alçadas de aprovação."},
+    {"nome": "Teresa Moura", "papel": "Diretora técnica, Subscrição", "contexto": "Autoridade de negócio sobre regras dos produtos."},
+    {"nome": "Daniel Farias", "papel": "Responsável pela Plataforma", "contexto": "Capacidades comuns e sua adoção pelas soluções."}
+  ],
+  "sistemas_conceituais": [
+    "Sistema central de apólices",
+    "Sistema de sinistros",
+    "Ferramenta de relacionamento com clientes",
+    "Repositório documental"
+  ],
+  "sistemas_ressalva": "Arquitetura conceitual da empresa fictícia; fornecedores e integrações a definir.",
+  "cronologia": [
+    {"periodo": "1994", "marco": "Fundação em Brasília", "proveniencia": "Nova narrativa"},
+    {"periodo": "2005", "marco": "Expansão da rede para atuação nacional", "proveniencia": "Nova narrativa"},
+    {"periodo": "2016", "marco": "Avanço do portal e canais digitais sobre uma operação com legado", "proveniencia": "Nova narrativa"},
+    {"periodo": "2024 (aproximado)", "marco": "Entrada do Classificador de Fraude em produção", "proveniencia": "Período aproximado derivado dos dois anos em produção registrados na avaliação de maturidade (assessment) de agosto de 2026"},
+    {"periodo": "2024", "marco": "Pilotos de IA generativa dispersos", "proveniencia": "Nova narrativa"},
+    {"periodo": "2025-03", "marco": "Patrocínio do diretor de tecnologia ao CoE de IA", "proveniencia": "Assessment original"},
+    {"periodo": "2025", "marco": "Piloto didático interno de apólices, anterior ao canal externo", "proveniencia": "Nova narrativa"},
+    {"periodo": "2026-08", "marco": "Assessment: nível final 2, com dois vetos operacionais", "proveniencia": "Assessment original"}
+  ],
+  "assessment_preservado": {
+    "fonte": "https://github.com/EdneiMonteiro/ai-coe-playbook/blob/main/assessment/exemplo-preenchido.md",
+    "licenca_fonte": "Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)",
+    "data": "2026-08",
+    "pontuacao_geral_bruta": 2.52,
+    "nivel_bruto": 3,
+    "nivel_final": 2,
+    "contencoes": 5,
+    "vetos_operacionais": 2,
+    "sem_agentes_com_execucao_de_acoes": true,
+    "solucoes": [
+      {"nome": "Assistente de Apólices", "tipo": "Assistente com RAG sobre condições gerais de apólices", "publico": "Externo: segurados no portal", "tempo_em_producao": "7 meses"},
+      {"nome": "Copiloto de Sinistros", "tipo": "IA generativa de apoio à análise", "publico": "Interno: analistas", "tempo_em_producao": "4 meses"},
+      {"nome": "Classificador de Fraude", "tipo": "Aprendizado de máquina clássico para priorização de investigação", "publico": "Interno: decisão humana", "tempo_em_producao": "2 anos"}
+    ],
+    "lacunas": [
+      "Exposição externa sem testes adversariais de IA (red teaming) executados ou dispensa formal aprovada.",
+      "Resposta a incidentes de IA não exercitada.",
+      "Mecanismos de interrupção (kill switch) ou contingência (fallback) sem testes nos casos de IA generativa.",
+      "Observabilidade disponível na plataforma, com instrumentação plena apenas no Assistente de Apólices."
+    ],
+    "expansoes": "Bloqueadas até remediação; operação atual mantida com restrições.",
+    "pedido_investimento_brl": 1200000,
+    "horizonte_remediacao_dias": 90,
+    "investimento_status": "Pedido registrado no resumo executivo do caso fictício; aprovação não registrada.",
+    "prazo_kill_switch_testado_dias": 45,
+    "ressalva": "Decisões históricas do cenário fictício. A liberação dos futuros protótipos para produção exige avaliação própria."
+  },
+  "jornadas": [
+    {
+      "id": "rag-apolices",
+      "titulo": "Assistente de Apólices com RAG",
+      "periodo_narrativo": "2025, piloto interno",
+      "publico_piloto": ["Atendimento", "Corretores"],
+      "produto": "vareleira-lar",
+      "objetivos": ["Comparar documentos", "Citar fontes", "Reconhecer ausência de evidência", "Avaliar recuperação e respostas"],
+      "fora_escopo": ["Decisão de cobertura individual", "Dados pessoais reais", "Emissão ou alteração de contratos", "Execução de ações"],
+      "status": "Introdução disponível. Base documental, roteiro e código planejados. Tecnologia a definir."
+    },
+    {
+      "id": "coe-ia",
+      "titulo": "Criação do CoE de IA",
+      "periodo_narrativo": "Março de 2025 a agosto de 2026",
+      "motivacao": "Pilotos dispersos, pressão por eficiência e respostas inconsistentes sobre apólices.",
+      "objetivos": ["Definir mandato", "Priorizar casos", "Atribuir responsabilidades", "Preparar operação", "Comparar propostas com as evidências do assessment"],
+      "status": "Introdução e assessment disponíveis. Caderno de exercícios planejado."
+    }
+  ]
+}
