@@ -2,8 +2,37 @@
 
 Proponha mudanças de escopo, história ou laboratórios em
 [Discussions](https://github.com/EdneiMonteiro/vareleira/discussions) antes de
-implementá-las. Correções pontuais podem ser enviadas por pull request, com
-descrição do problema e da alteração. Consulte [SUPPORT.md](SUPPORT.md) para erros.
+implementá-las. Discussions é o canal público para propostas, correções e dúvidas.
+Consulte [SUPPORT.md](SUPPORT.md) para relatar problemas.
+
+## Acesso e proteção
+
+A criação de issues e pull requests e as demais interações abrangidas pelo
+limite do GitHub estão restritas a colaboradores com acesso `write`. A restrição
+`collaborators_only` está configurada até **9 de abril de 2027, às 02:20:22 UTC**.
+O GitHub expira esse limite automaticamente; o mantenedor precisa renová-lo
+para manter a restrição após essa data.
+
+Quem não tem acesso de escrita deve iniciar uma Discussion. O mantenedor pode
+incorporar a contribuição e creditá-la ou avaliar uma solicitação de colaboração.
+Colaboradores podem enviar correções por pull request, com descrição do problema
+e da alteração.
+
+A branch `main` está protegida contra exclusão e force-push, pelo ruleset
+**Main Branch Protection**. A regra não exige aprovação obrigatória de pull
+request nem impede atualizações diretas autorizadas.
+
+## Moderação de Discussions
+
+Discussions permanece pública, conforme o [código de conduta](CODE_OF_CONDUCT.md).
+Use Q&A para dúvidas, Ideas para propostas e General para outros assuntos do
+projeto. Os formulários dessas categorias ajudam a descrever o contexto e
+evitar o compartilhamento de informações sensíveis.
+
+O mantenedor pode editar ou remover conteúdo inadequado, bloquear conversas e
+denunciar abuso conforme os recursos do GitHub. A moderação é manual, sem
+garantia de resposta imediata; formulários não bloqueiam spam automaticamente.
+Vulnerabilidades devem seguir o canal privado de [SECURITY.md](SECURITY.md).
 
 ## Conteúdo e consistência
 

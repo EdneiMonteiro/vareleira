@@ -1,0 +1,29 @@
+title: "[Proposta] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Proponha mudanças de escopo antes de implementá-las. Preserve o cenário
+        de agosto de 2026 e diferencie materiais disponíveis de entregas futuras.
+        Siga CONTRIBUTING.md e CODE_OF_CONDUCT.md.
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Problema e proposta
+      description: Explique o público, a necessidade e a mudança sugerida.
+    validations:
+      required: true
+  - type: textarea
+    id: impacto
+    attributes:
+      label: Impacto e referências
+      description: Indique páginas, dados, licenças ou exercícios afetados.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacidade
+    attributes:
+      label: Cuidados com o conteúdo
+      options:
+        - label: Removi dados pessoais e segredos e identifiquei as fontes externas.
+          required: true

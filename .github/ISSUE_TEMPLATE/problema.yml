@@ -5,6 +5,8 @@ body:
   - type: markdown
     attributes:
       value: |
+        A abertura de issues está temporariamente restrita a colaboradores com
+        acesso de escrita. Outros participantes devem usar Discussions.
         Use somente exemplos sintéticos. Não inclua dados pessoais, credenciais ou
         detalhes de vulnerabilidades. Para segurança, consulte SECURITY.md.
   - type: input

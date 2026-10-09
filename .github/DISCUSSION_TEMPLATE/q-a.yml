@@ -1,0 +1,28 @@
+title: "[Dúvida] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Informe a página e o contexto da dúvida. Use dados sintéticos e siga
+        CONTRIBUTING.md e CODE_OF_CONDUCT.md. Vulnerabilidades têm canal privado
+        em SECURITY.md. O suporte é comunitário, sem prazo garantido.
+  - type: input
+    id: referencia
+    attributes:
+      label: Página, arquivo ou versão
+    validations:
+      required: true
+  - type: textarea
+    id: duvida
+    attributes:
+      label: Dúvida e contexto
+      description: Descreva o que está tentando compreender e o material consultado.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacidade
+    attributes:
+      label: Cuidados com o conteúdo
+      options:
+        - label: Usei apenas exemplos sintéticos e removi dados pessoais e segredos.
+          required: true

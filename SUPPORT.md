@@ -2,8 +2,10 @@
 
 Use [Discussions](https://github.com/EdneiMonteiro/vareleira/discussions) para
 dúvidas sobre o cenário, sugestões de conteúdo e propostas de novos exercícios.
-Para erros reproduzíveis no site, abra uma
-[issue](https://github.com/EdneiMonteiro/vareleira/issues/new/choose).
+Erros reproduzíveis também podem ser relatados ali. Colaboradores com acesso
+`write` podem abrir uma [issue](https://github.com/EdneiMonteiro/vareleira/issues/new/choose).
+A restrição de interações e seu vencimento estão em
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 O atendimento depende da disponibilidade do mantenedor. Não há acordo de nível
 de serviço ou suporte oficial da Microsoft ou do GitHub.

@@ -16,9 +16,37 @@ O About, os tópicos e a origem do Pages são configurações do GitHub. Arquivo
 documentação descrevem os valores; mudanças nesses arquivos não alteram as
 configurações remotas automaticamente.
 
-Discussions recebe dúvidas e propostas. Issues recebe erros reproduzíveis.
-Pull requests permitem revisar alterações antes da incorporação. A política
-não alega restrição técnica desses canais a colaboradores.
+Discussions recebe publicamente dúvidas, propostas e relatos de erro.
+Issues e pull requests estão restritos a colaboradores com acesso `write`
+até **9 de abril de 2027, às 02:20:22 UTC**, por `collaborators_only`.
+O limite expira automaticamente e exige renovação.
+
+O ruleset **Main Branch Protection** está ativo na branch padrão, sem exceções
+de bypass, com regras `deletion` e `non_fast_forward`. Ele bloqueia exclusão
+e force-push. Não exige aprovação de pull requests ou verificações obrigatórias.
+
+As categorias Q&A, Ideas e General têm formulários. A moderação pública segue
+[CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md); não há filtragem automática de spam.
+
+## Verificar e renovar restrições
+
+Com o GitHub CLI autenticado como administrador do repositório:
+
+```powershell
+gh api repos/EdneiMonteiro/vareleira/interaction-limits
+gh api repos/EdneiMonteiro/vareleira/rulesets/24763521
+```
+
+Para renovar o limite de interações por seis meses:
+
+```powershell
+gh api --method PUT repos/EdneiMonteiro/vareleira/interaction-limits `
+  -f limit=collaborators_only -f expiry=six_months
+```
+
+Confira `expires_at` na resposta e atualize a data neste documento e em
+`CONTRIBUTING.md`. Essa operação afeta as interações abrangidas pelo limite;
+Discussions continua como fórum público moderado.
 
 ## Fluxo de publicação
 

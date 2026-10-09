@@ -58,6 +58,7 @@ no comando e no endereço. Ao terminar, encerre o servidor com `Ctrl+C`.
 | Necessidade | Referência |
 | --- | --- |
 | Propor uma mudança ou enviar código | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Consultar regras de convivência e moderação | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
 | Relatar um problema de conteúdo ou apresentação | [SUPPORT.md](SUPPORT.md) |
 | Comunicar uma vulnerabilidade em privado | [SECURITY.md](SECURITY.md) |
 | Entender escopo, garantias e privacidade | [DISCLAIMER.md](DISCLAIMER.md) |
@@ -68,6 +69,11 @@ no comando e no endereço. Ao terminar, encerre o servidor com `Ctrl+C`.
 
 Projeto pessoal, sem afiliação, endosso ou suporte oficial da Microsoft ou do
 GitHub. O suporte é comunitário e não tem prazo garantido.
+
+Discussions é o canal público de entrada. Issues e pull requests estão
+temporariamente restritos a colaboradores com acesso `write`, conforme o prazo
+registrado em [CONTRIBUTING.md](CONTRIBUTING.md). A branch `main` bloqueia
+exclusão e force-push.
 
 Referência sugerida:
 

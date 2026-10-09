@@ -1,0 +1,20 @@
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este espaço para assuntos relacionados à Vareleira. Dúvidas técnicas
+        podem usar Q&A e propostas podem usar Ideas. Siga CODE_OF_CONDUCT.md.
+        Não publique dados pessoais, credenciais ou detalhes de vulnerabilidades.
+  - type: textarea
+    id: assunto
+    attributes:
+      label: Assunto e contexto
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacidade
+    attributes:
+      label: Cuidados com o conteúdo
+      options:
+        - label: Revisei o conteúdo e removi dados pessoais e segredos.
+          required: true

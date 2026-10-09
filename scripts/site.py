@@ -19,7 +19,8 @@ PAGES = (
 )
 PUBLIC_FILES = PAGES + (
     ".nojekyll", "LICENSE", "NOTICE.md", "DISCLAIMER.md", "SUPPORT.md",
-    "SECURITY.md", "CONTRIBUTING.md", "CONTRIBUTORS.md", "README.md", "CITATION.cff",
+    "SECURITY.md", "CONTRIBUTING.md", "CONTRIBUTORS.md", "CODE_OF_CONDUCT.md",
+    "README.md", "CITATION.cff",
 )
 PUBLIC_DIRS = ("assets", "dados", "LICENSES", "docs")
 VOID_TAGS = {
