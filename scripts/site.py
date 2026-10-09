@@ -5,12 +5,17 @@ from collections import Counter
 from html.parser import HTMLParser
 import json
 import hashlib
+from html import escape
+import os
 from pathlib import Path
 import re
 import shutil
 import sys
-from urllib.parse import unquote, urlsplit
+from string import Template
+from urllib.parse import quote, unquote, urlsplit, urlunsplit
 import xml.etree.ElementTree as ET
+
+import markdown
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,6 +36,7 @@ VOID_TAGS = {
     "link", "meta", "param", "source", "track", "wbr",
 }
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)")
+HREF = re.compile(r'(\bhref\s*=\s*)(["\'])(.*?)\2', re.IGNORECASE)
 
 
 class Page(HTMLParser):
@@ -88,7 +94,91 @@ def local_target(root, source, href):
     return target, unquote(url.fragment)
 
 
-def validate(root):
+def document_sources(root):
+    paths = [root / name for name in PUBLIC_FILES if name.endswith(".md")]
+    paths.append(root / "LICENSE")
+    for name in PUBLIC_DIRS:
+        paths.extend((root / name).rglob("*.md"))
+    return sorted(paths)
+
+
+def document_url(root, source, href, documents):
+    """Point published document links at HTML while preserving query and fragment."""
+    url = urlsplit(href)
+    if url.netloc:
+        github_prefix = "/EdneiMonteiro/vareleira/blob/main/"
+        if url.netloc == "github.com" and url.path.startswith(github_prefix):
+            target = root / unquote(url.path[len(github_prefix):])
+        elif url.netloc == "vareleira.com":
+            target = root / unquote(url.path.lstrip("/"))
+        else:
+            return href
+    elif url.scheme or not url.path:
+        return href
+    else:
+        target = source.parent / unquote(url.path)
+    target = target.resolve()
+    output = documents.get(target)
+    if output is None:
+        return href
+    relative = Path(os.path.relpath(output, source.parent)).as_posix()
+    return urlunsplit(("", "", quote(relative), url.query, url.fragment))
+
+
+def render_documents(root):
+    sources = document_sources(root)
+    documents = {p.resolve(): p.with_suffix(".html") for p in sources}
+    template = Template((ROOT / "scripts" / "document.html").read_text(encoding="utf-8"))
+    for source in sources:
+        output = documents[source.resolve()]
+        if output.exists():
+            raise ValueError(f"Document HTML would overwrite an existing page: {output}")
+        body = markdown.markdown(
+            source.read_text(encoding="utf-8"),
+            extensions=["tables", "fenced_code", "toc", "sane_lists"],
+        )
+        tree = ET.fromstring(f"<div>{body}</div>")
+        headings = list(tree.iter("h1"))
+        if len(headings) != 1:
+            raise ValueError(f"{source.name}: expected one document title")
+        title = "".join(headings[0].itertext())
+        identifiers = {element.get("id") for element in tree.iter()}
+        main_id = "pagina-documento"
+        while main_id in identifiers:
+            main_id += "-principal"
+        for link in tree.iter("a"):
+            href = link.get("href")
+            if href and "download" not in link.attrib:
+                link.set("href", document_url(root, source, href, documents))
+        for parent in list(tree.iter()):
+            for child in list(parent):
+                if child.tag == "table":
+                    index = list(parent).index(child)
+                    parent.remove(child)
+                    wrapper = ET.Element("div", {
+                        "class": "table-scroll", "role": "region",
+                        "aria-label": f"Tabela: {title}", "tabindex": "0",
+                    })
+                    wrapper.append(child)
+                    parent.insert(index, wrapper)
+        body = "".join(ET.tostring(child, encoding="unicode", method="html") for child in tree)
+        prefix = "../" * len(source.relative_to(root).parent.parts)
+        output.write_text(template.substitute(
+            title=escape(title), body=body, prefix=prefix, main_id=main_id,
+            source=escape(quote(source.name), quote=True),
+        ), encoding="utf-8")
+    for name in PAGES:
+        path = root / name
+        text = path.read_text(encoding="utf-8")
+        text = HREF.sub(
+            lambda match: match[1] + match[2]
+            + document_url(root, path, match[3], documents) + match[2],
+            text,
+        )
+        path.write_text(text, encoding="utf-8")
+
+
+def validate(root, rendered=False):
     root = root.resolve()
     errors = []
     parsed = {}
@@ -106,7 +196,14 @@ def validate(root):
         errors.append(f"Missing preserved article: {ARTICLE}")
     elif hashlib.sha256(article.read_bytes().replace(b"\r\n", b"\n")).hexdigest() != ARTICLE_SHA256:
         errors.append("Preserved article changed; verify provenance before updating its hash")
-    for path in root.glob("*.html"):
+    expected_pages = {root / name for name in PAGES}
+    if rendered:
+        expected_pages.update(p.with_suffix(".html") for p in document_sources(root))
+    actual_pages = set(root.glob("*.html"))
+    for name in PUBLIC_DIRS:
+        actual_pages.update((root / name).rglob("*.html"))
+    actual_pages.discard(article)
+    for path in actual_pages:
         text = path.read_text(encoding="utf-8")
         page = Page(text)
         parsed[path.resolve()] = page
@@ -120,7 +217,7 @@ def validate(root):
         if "Empresa fictícia" not in text:
             errors.append(f"{path.name}: missing fictional-company notice")
         references.extend((path, href) for href in page.links)
-    if {p.name for p in parsed} != set(PAGES):
+    if actual_pages != expected_pages:
         errors.append("Update the public page list before adding or removing pages")
     documents = list(root.glob("*.md")) + [root / "LICENSE"]
     for directory in (root / "docs", root / ".github"):
@@ -189,7 +286,8 @@ def build(root, destination):
         shutil.copy2(root / name, destination / name)
     for name in PUBLIC_DIRS:
         shutil.copytree(root / name, destination / name)
-    validate(destination)
+    render_documents(destination)
+    validate(destination, rendered=True)
 
 
 def main():

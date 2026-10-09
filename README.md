@@ -137,9 +137,12 @@ e identifique as adaptações. Materiais de terceiros mantêm os próprios termo
 
 ## Validação e publicação
 
-Requisito para a automação: Python 3.12 ou superior, somente biblioteca padrão.
+Requisitos para a automação: Python 3.12 ou superior e a biblioteca Python-Markdown,
+fixada em `requirements-build.txt`. A dependência é usada apenas na composição;
+o navegador recebe páginas estáticas.
 
 ```powershell
+python -m pip install -r requirements-build.txt
 python scripts\site.py check
 python -m unittest discover -s tests -v
 python scripts\site.py build
@@ -149,6 +152,14 @@ O último comando cria `_site` em uma pasta nova. Se ela já existir, escolha ou
 com `python scripts\site.py build --output _site-preview`; o comando preserva
 diretórios existentes. O pacote inclui apenas páginas, ativos, dados e avisos
 licenciados, sem scripts, testes ou arquivos internos do repositório.
+
+Todos os documentos Markdown incluídos no pacote público recebem uma versão
+HTML, com títulos, tabelas, listas, código e navegação. Por exemplo,
+`SUPPORT.md` gera `SUPPORT.html`, e `docs/publicacao.md` gera
+`docs/publicacao.html`. O mapa de licenças também gera `LICENSE.html`.
+Os links entre documentos são convertidos para as versões formatadas, e os
+originais continuam disponíveis pelo botão de download. URLs terminadas em
+`.md` continuam servindo o arquivo-fonte; compartilhe as URLs `.html` para leitura.
 
 Pull requests executam as verificações. Atualizações em `main` também geram o
 pacote e publicam no GitHub Pages. Consulte [o procedimento de publicação](docs/publicacao.md)

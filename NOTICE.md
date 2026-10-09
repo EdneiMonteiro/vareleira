@@ -46,8 +46,11 @@ As ilustrações SVG da Vareleira foram criadas para este projeto e seguem CC BY
 O site usa fontes do sistema e não incorpora fontes ou imagens de terceiros.
 
 Os badges do README são fornecidos por Shields.io e pela interface do GitHub.
-Eles não são carregados nas páginas do site. GitHub Pages hospeda os arquivos
+Eles são carregados também na versão HTML do README. GitHub Pages hospeda os arquivos
 publicados; suas condições e práticas de privacidade pertencem ao GitHub.
+
+Python-Markdown é usado somente durante a composição das páginas, sob sua licença
+BSD-3-Clause. Seu código não é incorporado ao site publicado.
 
 Microsoft, GitHub e os demais nomes de produtos são citados para identificação.
 Seus titulares preservam os respectivos direitos sobre marcas.

@@ -51,6 +51,9 @@ segredos, dados pessoais ou arquivos de configuração do seu ambiente.
 
 ## Antes de enviar
 
+Prepare o ambiente com Python 3.12 ou superior e
+`python -m pip install -r requirements-build.txt`.
+
 1. Execute `python scripts\site.py check` com Python 3.12 ou superior.
 2. Abra as páginas alteradas e confira navegação, textos e apresentação em
    telas grandes e pequenas.

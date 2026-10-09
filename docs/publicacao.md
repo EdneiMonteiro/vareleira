@@ -51,7 +51,8 @@ Discussions continua como fórum público moderado.
 ## Fluxo de publicação
 
 O workflow `.github/workflows/pages.yml` executa em pull requests, atualizações
-de `main` e acionamentos manuais. Usa Python 3.12, sem dependências adicionais.
+de `main` e acionamentos manuais. Usa Python 3.12 e instala Python-Markdown
+conforme `requirements-build.txt` para compor os documentos.
 
 1. A automação verifica os arquivos e executa os testes.
 2. Em `main`, gera `_site` com uma lista explícita de arquivos públicos.
@@ -67,6 +68,7 @@ somente leitura do conteúdo. As ações são fixadas por revisão.
 Execute na raiz do projeto:
 
 ```powershell
+python -m pip install -r requirements-build.txt
 python scripts\site.py check
 python -m unittest discover -s tests -v
 python scripts\site.py build --output _site-preview
@@ -82,6 +84,23 @@ Depois do envio a `main`, acompanhe
 [Actions](https://github.com/EdneiMonteiro/vareleira/actions/workflows/pages.yml).
 Considere a publicação concluída após o job terminar com sucesso e a página
 pública apresentar a alteração.
+
+## Leitura dos documentos
+
+O pacote mantém os arquivos Markdown e gera páginas HTML correspondentes para
+todos os documentos públicos, inclusive os que estiverem dentro de `docs`.
+O mapa `LICENSE`, escrito em Markdown, também recebe a página `LICENSE.html`.
+Arquivos de licenças em `.txt` e dados em JSON mantêm seus formatos originais.
+
+Os links do site e dos documentos passam a apontar para as páginas formatadas.
+O botão **Baixar arquivo-fonte** preserva o acesso ao original. O GitHub Pages
+continua servindo URLs `.md` como texto; use `.html` ao compartilhar a leitura.
+Os Markdown do repositório permanecem como fonte de edição e são renderizados
+normalmente na interface do GitHub.
+
+Para conferir a aparência final localmente, abra o pacote gerado em `_site-preview`.
+Abrir `index.html` diretamente na pasta de fontes mantém os links originais.
+O artigo histórico permanece idêntico à cópia atribuída e não é recomposto.
 
 ## Falhas e recuperação
 

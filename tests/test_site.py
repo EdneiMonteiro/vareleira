@@ -33,7 +33,10 @@ class SiteTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "site"
             site.build(ROOT, output)
-            self.assertEqual(site.validate(output)[0], 7)
+            self.assertEqual(
+                site.validate(output, rendered=True)[0],
+                7 + len(site.document_sources(output)),
+            )
             self.assertFalse((output / "scripts").exists())
             self.assertFalse((output / ".github").exists())
             self.assertFalse((output / "tests").exists())
@@ -51,7 +54,7 @@ class SiteTests(unittest.TestCase):
                 'href="#conteudo"', 'href="#missing-fragment"'
             ), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "missing fragment"):
-                site.validate(output)
+                site.validate(output, rendered=True)
 
     def test_preserved_article_is_required(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -59,7 +62,7 @@ class SiteTests(unittest.TestCase):
             site.build(ROOT, output)
             (output / site.ARTICLE).unlink()
             with self.assertRaisesRegex(ValueError, "Missing preserved article"):
-                site.validate(output)
+                site.validate(output, rendered=True)
 
     def test_preserved_article_changes_require_review(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -67,7 +70,7 @@ class SiteTests(unittest.TestCase):
             site.build(ROOT, output)
             (output / site.ARTICLE).write_text("changed", encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "Preserved article changed"):
-                site.validate(output)
+                site.validate(output, rendered=True)
 
     def test_historical_numbers_are_preserved(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -78,7 +81,42 @@ class SiteTests(unittest.TestCase):
                 '"nivel_final": 2', '"nivel_final": 3'
             ), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "Historical assessment changed"):
-                site.validate(output)
+                site.validate(output, rendered=True)
+
+    def test_documents_are_formatted_and_linked(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "site"
+            site.build(ROOT, output)
+            for source in site.document_sources(output):
+                self.assertTrue(source.with_suffix(".html").is_file())
+                original = ROOT / source.relative_to(output)
+                self.assertEqual(source.read_bytes(), original.read_bytes())
+            support = (output / "SUPPORT.html").read_text(encoding="utf-8")
+            self.assertIn("<h1", support)
+            self.assertIn('href="CONTRIBUTING.html"', support)
+            self.assertIn('href="SUPPORT.md" download', support)
+            acervo = (output / "acervo.html").read_text(encoding="utf-8")
+            self.assertIn('href="SUPPORT.html"', acervo)
+            self.assertIn('href="LICENSE.html"', acervo)
+            publication = (output / "docs" / "publicacao.html").read_text(encoding="utf-8")
+            self.assertIn('href="../assets/site.css"', publication)
+            self.assertIn('href="../CODE_OF_CONDUCT.html"', publication)
+            self.assertIn("<pre><code", publication)
+            self.assertIn('class="table-scroll"', publication)
+
+    def test_document_link_conversion_preserves_url_parts(self):
+        source = ROOT / "index.html"
+        documents = {(ROOT / "SUPPORT.md").resolve(): ROOT / "SUPPORT.html"}
+        for href in (
+            "SUPPORT.md?view=1#limites",
+            "https://github.com/EdneiMonteiro/vareleira/blob/main/SUPPORT.md?view=1#limites",
+            "https://vareleira.com/SUPPORT.md?view=1#limites",
+        ):
+            with self.subTest(href=href):
+                self.assertEqual(site.document_url(ROOT, source, href, documents),
+                                 "SUPPORT.html?view=1#limites")
+        external = "https://github.com/EdneiMonteiro/ai-coe-playbook/blob/main/README.md"
+        self.assertEqual(site.document_url(ROOT, source, external, documents), external)
 
 
 if __name__ == "__main__":
