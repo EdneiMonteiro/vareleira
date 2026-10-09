@@ -7,7 +7,7 @@
 | Repositório | `EdneiMonteiro/vareleira` |
 | Visibilidade | Público |
 | Branch principal | `main` |
-| Site | https://edneimonteiro.github.io/vareleira/ |
+| Site | https://vareleira.com/ |
 | About | Universo educacional de uma seguradora fictícia de Brasília para mentorias, cursos e laboratórios de IA, com contexto sintético, RAG e governança. |
 | Tópicos | `artificial-intelligence`, `education`, `fictional-company`, `synthetic-data`, `insurance`, `rag`, `ai-governance`, `ai-coe`, `github-pages`, `portuguese` |
 | Pages | Origem: GitHub Actions |
@@ -96,14 +96,29 @@ pública apresentar a alteração.
 
 ## Domínios existentes
 
-A publicação inicial usa o endereço padrão do GitHub Pages. Este repositório
-não contém `CNAME` e o workflow não modifica DNS.
+Em 9 de outubro de 2026 (UTC), `vareleira.com` foi transferido das configurações
+Pages do repositório `ai-coe-playbook` para `vareleira`, com HTTPS obrigatório.
+O endereço `https://edneimonteiro.github.io/vareleira/` redireciona para o domínio.
+Os registros DNS existentes foram mantidos.
 
-Antes de migrar `vareleira.com`, preserve a rota
-`https://vareleira.com/artigos/coe-ia-playbook.html`, hoje atendida pelo playbook.
-A mudança exige escolher como servir ou redirecionar o artigo, verificar a
-propriedade do domínio e configurar HTTPS. O redirecionamento de
-`vareleira.com.br` deve ser planejado separadamente.
+A rota `https://vareleira.com/artigos/coe-ia-playbook.html` é atendida por uma
+cópia integral e atribuída do artigo no pacote deste site. O gerador verifica
+seu hash antes de publicar. Consulte [NOTICE.md](../NOTICE.md) para a origem
+e o procedimento de atualização.
+
+O repositório do playbook mantém sua publicação em
+`https://edneimonteiro.github.io/ai-coe-playbook/`, sem domínio personalizado.
+Seu arquivo `CNAME` foi removido. Este repositório usa Actions e configura o
+domínio diretamente em Settings → Pages; não precisa de arquivo `CNAME`.
+
+A consulta DNS durante a migração não encontrou o TXT convencional de
+verificação de propriedade. Verifique o estado em configurações da conta →
+Pages e, se necessário, adicione o TXT fornecido pelo GitHub. Isso protege
+a associação do domínio contra uso por outras contas.
+
+`vareleira.com.br` e `www.vareleira.com` não foram configurados nesta operação.
+O redirecionamento do domínio brasileiro e o registro da variante `www`
+devem ser tratados separadamente.
 
 ## Reutilizar esta estrutura
 

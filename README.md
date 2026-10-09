@@ -11,7 +11,7 @@ mentorias, livros, manuais, cursos e laboratórios de inteligência
 artificial (IA). Versão **0.1.0**, em português do Brasil, com cenário de referência
 em **agosto de 2026**.
 
-**Site:** [edneimonteiro.github.io/vareleira](https://edneimonteiro.github.io/vareleira/).
+**Site:** [vareleira.com](https://vareleira.com/).
 **Dúvidas e propostas:** [Discussions](https://github.com/EdneiMonteiro/vareleira/discussions).
 
 O projeto oferece uma história comum para estudar consulta a apólices com
@@ -52,6 +52,7 @@ no comando e no endereço. Ao terminar, encerre o servidor com `Ctrl+C`.
 | `assets\site.css` | Estilo compartilhado e responsividade |
 | `assets\brasilia.svg` | Ilustração vetorial original, sem dependências externas |
 | `assets\favicon.svg` | Marca gráfica inicial |
+| `artigos\coe-ia-playbook.html` | Cópia atribuída do artigo para preservar sua URL pública |
 
 ## Contribuição, suporte e citação
 
@@ -154,4 +155,7 @@ pacote e publicam no GitHub Pages. Consulte [o procedimento de publicação](doc
 para configuração, acompanhamento e recuperação.
 
 `vareleira.com` e `vareleira.com.br` não são alterados por essa automação.
-O artigo continua em [seu endereço atual](https://vareleira.com/artigos/coe-ia-playbook.html).
+O domínio `vareleira.com` está associado a este repositório nas configurações do
+Pages. O artigo continua em [seu endereço atual](https://vareleira.com/artigos/coe-ia-playbook.html),
+por uma cópia versionada cuja origem está em [NOTICE.md](NOTICE.md).
+O domínio `vareleira.com.br` não foi alterado na migração.
