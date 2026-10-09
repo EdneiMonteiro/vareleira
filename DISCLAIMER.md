@@ -2,7 +2,7 @@
 
 ## Empresa e dados fictícios
 
-A Vareleira é um universo educacional de Ednei Monteiro. Empresa, personagens,
+A Vareleira é um universo educacional. Empresa, personagens,
 produtos, documentos sintéticos e acontecimentos corporativos são fictícios.
 O projeto não representa uma seguradora autorizada, não comercializa seguros
 e não recebe propostas, pagamentos ou documentos de segurados.

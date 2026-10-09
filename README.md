@@ -6,8 +6,8 @@
 [![Validação e Pages](https://github.com/EdneiMonteiro/vareleira/actions/workflows/pages.yml/badge.svg)](https://github.com/EdneiMonteiro/vareleira/actions/workflows/pages.yml)
 [![Último commit](https://img.shields.io/github/last-commit/EdneiMonteiro/vareleira)](https://github.com/EdneiMonteiro/vareleira/commits/main)
 
-Site institucional de uma **seguradora fictícia**, criada por Ednei Monteiro como
-contexto para mentorias, livros, manuais, cursos e laboratórios de inteligência
+Site institucional de uma **seguradora fictícia**, usado como contexto para
+mentorias, livros, manuais, cursos e laboratórios de inteligência
 artificial (IA). Versão **0.1.0**, em português do Brasil, com cenário de referência
 em **agosto de 2026**.
 
