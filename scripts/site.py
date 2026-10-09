@@ -4,6 +4,7 @@ import argparse
 from collections import Counter
 from html.parser import HTMLParser
 import json
+import hashlib
 from pathlib import Path
 import re
 import shutil
@@ -22,7 +23,9 @@ PUBLIC_FILES = PAGES + (
     "SECURITY.md", "CONTRIBUTING.md", "CONTRIBUTORS.md", "CODE_OF_CONDUCT.md",
     "README.md", "CITATION.cff",
 )
-PUBLIC_DIRS = ("assets", "dados", "LICENSES", "docs")
+PUBLIC_DIRS = ("assets", "dados", "LICENSES", "docs", "artigos")
+ARTICLE = "artigos/coe-ia-playbook.html"
+ARTICLE_SHA256 = "a65455756e839e869e2dfd2dfd22b9c04a33acb0978ca345307403d2cdd17dba"
 VOID_TAGS = {
     "area", "base", "br", "col", "embed", "hr", "img", "input",
     "link", "meta", "param", "source", "track", "wbr",
@@ -97,7 +100,12 @@ def validate(root):
         if not (root / name).is_dir():
             errors.append(f"Missing public directory: {name}")
     if (root / "CNAME").exists():
-        errors.append("Custom domain requires a separate migration; remove CNAME")
+        errors.append("Pages uses Actions and repository settings; CNAME is not required")
+    article = root / ARTICLE
+    if not article.is_file():
+        errors.append(f"Missing preserved article: {ARTICLE}")
+    elif hashlib.sha256(article.read_bytes().replace(b"\r\n", b"\n")).hexdigest() != ARTICLE_SHA256:
+        errors.append("Preserved article changed; verify provenance before updating its hash")
     for path in root.glob("*.html"):
         text = path.read_text(encoding="utf-8")
         page = Page(text)

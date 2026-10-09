@@ -17,6 +17,18 @@ A adaptação acrescenta fundação, sede, produtos, personagens e uma etapa did
 de piloto interno. Preserva os números e as lacunas do assessment. A avaliação
 fictícia não representa resultados de uma organização real.
 
+## Artigo preservado
+
+`artigos/coe-ia-playbook.html` reproduz integralmente o artigo de Ednei Monteiro
+do mesmo repositório e revisão de referência, sob CC BY 4.0. A cópia preserva
+a rota pública `/artigos/coe-ia-playbook.html` durante a transferência do domínio.
+O arquivo original permanece no repositório do playbook, que é sua fonte de manutenção.
+
+O gerador confere o SHA-256 do conteúdo com finais de linha normalizados para LF:
+`a65455756e839e869e2dfd2dfd22b9c04a33acb0978ca345307403d2cdd17dba`.
+Atualizações exigem conferir a nova revisão, substituir a cópia e atualizar
+esta atribuição e o hash no validador.
+
 ## Padrões de repositório adaptados
 
 | Referência | Elementos aproveitados |

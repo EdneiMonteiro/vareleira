@@ -37,6 +37,7 @@ class SiteTests(unittest.TestCase):
             self.assertFalse((output / "scripts").exists())
             self.assertFalse((output / ".github").exists())
             self.assertFalse((output / "tests").exists())
+            self.assertEqual((output / site.ARTICLE).read_bytes(), (ROOT / site.ARTICLE).read_bytes())
             self.assertEqual((output / "index.html").read_bytes(), (ROOT / "index.html").read_bytes())
             with self.assertRaises(ValueError):
                 site.build(ROOT, output)
@@ -50,6 +51,22 @@ class SiteTests(unittest.TestCase):
                 'href="#conteudo"', 'href="#missing-fragment"'
             ), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "missing fragment"):
+                site.validate(output)
+
+    def test_preserved_article_is_required(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "site"
+            site.build(ROOT, output)
+            (output / site.ARTICLE).unlink()
+            with self.assertRaisesRegex(ValueError, "Missing preserved article"):
+                site.validate(output)
+
+    def test_preserved_article_changes_require_review(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "site"
+            site.build(ROOT, output)
+            (output / site.ARTICLE).write_text("changed", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Preserved article changed"):
                 site.validate(output)
 
     def test_historical_numbers_are_preserved(self):
